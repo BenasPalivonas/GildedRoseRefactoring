@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s/0WCEt5/zvTaFv12d6a3d1WM7RhH6Bp4NdSJ+evO+IY+D13vvCmdZhIz5Ch4htSaFKiWKy8FkM1J5aAecwA1A==",
+  "dgSpecHash": "kI3gdZPTVUeL0XTs0+vZlC5MPQixN9aytbpOzmr8l9bn/EbQYN1tTGG6vceKKGl3vHnBhJgW7MxIQVj9M+tsLQ==",
   "success": true,
-  "projectFilePath": "D:\\telesoftuzduotis\\GildedRose\\GildedRose.tests\\GildedRose.tests.csproj",
+  "projectFilePath": "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose.tests\\GildedRose.tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\approvaltests\\4.2.0\\approvaltests.4.2.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\approvalutilities\\4.2.0\\approvalutilities.4.2.0.nupkg.sha512",

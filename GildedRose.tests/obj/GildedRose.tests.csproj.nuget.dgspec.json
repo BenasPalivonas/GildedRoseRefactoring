@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\telesoftuzduotis\\GildedRose\\GildedRose.tests\\GildedRose.tests.csproj": {}
+    "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose.tests\\GildedRose.tests.csproj": {}
   },
   "projects": {
-    "D:\\telesoftuzduotis\\GildedRose\\GildedRose.tests\\GildedRose.tests.csproj": {
+    "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose.tests\\GildedRose.tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\telesoftuzduotis\\GildedRose\\GildedRose.tests\\GildedRose.tests.csproj",
+        "projectUniqueName": "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose.tests\\GildedRose.tests.csproj",
         "projectName": "GildedRose.tests",
-        "projectPath": "D:\\telesoftuzduotis\\GildedRose\\GildedRose.tests\\GildedRose.tests.csproj",
+        "projectPath": "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose.tests\\GildedRose.tests.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\telesoftuzduotis\\GildedRose\\GildedRose.tests\\obj\\",
+        "outputPath": "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose.tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\telesoftuzduotis\\GildedRose\\GildedRose\\GildedRose.csproj": {
-                "projectPath": "D:\\telesoftuzduotis\\GildedRose\\GildedRose\\GildedRose.csproj"
+              "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose\\GildedRose.csproj": {
+                "projectPath": "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose\\GildedRose.csproj"
               }
             }
           }
@@ -92,14 +92,14 @@
         }
       }
     },
-    "D:\\telesoftuzduotis\\GildedRose\\GildedRose\\GildedRose.csproj": {
+    "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose\\GildedRose.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\telesoftuzduotis\\GildedRose\\GildedRose\\GildedRose.csproj",
+        "projectUniqueName": "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose\\GildedRose.csproj",
         "projectName": "GildedRose",
-        "projectPath": "D:\\telesoftuzduotis\\GildedRose\\GildedRose\\GildedRose.csproj",
+        "projectPath": "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose\\GildedRose.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\telesoftuzduotis\\GildedRose\\GildedRose\\obj\\",
+        "outputPath": "D:\\telesoftuzduotis\\GildedRoseRefactoring\\GildedRose\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
