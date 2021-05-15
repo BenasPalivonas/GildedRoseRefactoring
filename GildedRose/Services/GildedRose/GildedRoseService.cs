@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using csharpcore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace csharpcore
+namespace GildedRose.Services.GildedRose
 {
-    public class GildedRose
+   public class GildedRoseService : IGildedRoseService
     {
-        IList<Item> Items;
-        public GildedRose(IList<Item> Items)
-        {
-            this.Items = Items;
-        }
-
-        public void UpdateQuality()
+        public void UpdateQuality(IList<Item> Items)
         {
             for (var i = 0; i < Items.Count; i++)
             {
