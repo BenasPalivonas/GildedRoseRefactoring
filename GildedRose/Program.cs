@@ -1,4 +1,5 @@
-﻿using GildedRose.Services.Items;
+﻿using GildedRose.Services.ConsoleWriter;
+using GildedRose.Services.Items;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -9,16 +10,17 @@ namespace csharpcore
     public class Program
     {
         private readonly IItems _items;
-
+        private readonly IConsoleWriter _consoleWriter;
 
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
             host.Services.GetRequiredService<Program>().Run();
         }
-        public Program(IItems items)
+        public Program(IItems items, IConsoleWriter consoleWriter)
         {
             _items = items;
+            _consoleWriter = consoleWriter;
         }
         public void Run()
         {
@@ -27,15 +29,8 @@ namespace csharpcore
             var app = new GildedRose(Items);
             for (var i = 0; i < 31; i++)
             {
-                Console.WriteLine("-------- day " + i + " --------");
-                Console.WriteLine("name, sellIn, quality");
-                for (var j = 0; j < Items.Count; j++)
-                {
-                    System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
-                }
-                Console.WriteLine("");
+                _consoleWriter.WriteItemsToConsole(Items, i);
                 app.UpdateQuality();
-
             }
         }
         private static IHostBuilder CreateHostBuilder(string[] args)
@@ -45,6 +40,7 @@ namespace csharpcore
                 {
                     services.AddTransient<Program>();
                     services.AddTransient<IItems, Items>();
+                    services.AddTransient<IConsoleWriter, ConsoleWriter>();
                 });
         }
     }
