@@ -13,53 +13,71 @@ namespace GildedRose.Services.GildedRose
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                UpdateQuality_TMP(Items[i]);
+
+                DecreaseSellInIfNotSulfuras(Items[i]);
+
+                HandleSellInExpired(Items[i]);
+            }
+        }
+
+        private static void HandleSellInExpired(Item item)
+        {
+            if (item.SellIn < 0)
+            {
+                if (item.Name != "Aged Brie")
                 {
-                        DecreaseQualityIfNotSulfuras(Items[i]);
+                    DecreaseQualityIfNotBackStagePasses(item);
                 }
                 else
                 {
-                    if (Items[i].Quality < 50)
-                    {
-                        Items[i].Quality = Items[i].Quality + 1;
-
-                        if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (Items[i].SellIn < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-
-                            if (Items[i].SellIn < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-                        }
-                    }
+                    IncreaseQuality(item);
                 }
+            }
+        }
 
-                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
+        private static void UpdateQuality_TMP(Item item)
+        {
+            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+            {
+                DecreaseQualityIfNotSulfuras(item);
+            }
+            else
+            {
+                IncreaseQualityIncludingBackstagePasses(item);
+            }
+        }
 
-                if (Items[i].SellIn < 0)
-                {
-                    if (Items[i].Name != "Aged Brie")
-                    {
-                        DecreaseQualityIfNotBackStagePasses(Items[i]);
-                    }
-                    else
-                    {
-                        IncreaseQuality(Items[i]);
-                    }
-                }
+        private static void DecreaseSellInIfNotSulfuras(Item item)
+        {
+            if (item.Name != "Sulfuras, Hand of Ragnaros")
+            {
+                item.SellIn -= 1;
+            }
+        }
+
+        private static void IncreaseIfBackStagePasses(Item item)
+        {
+            if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+            {
+                IncreaseIfReachingExpiry(item);
+                IncreaseIfCloseToExpiry(item);
+            }
+        }
+
+        private static void IncreaseIfCloseToExpiry(Item item)
+        {
+            if (item.SellIn < 6)
+            {
+                IncreaseQuality(item);
+            }
+        }
+
+        private static void IncreaseIfReachingExpiry(Item item)
+        {
+            if (item.SellIn < 11)
+            {
+                IncreaseQuality(item);
             }
         }
 
@@ -71,15 +89,24 @@ namespace GildedRose.Services.GildedRose
             }
             else
             {
-                item.Quality = item.Quality - item.Quality;
+                item.Quality = 0;
             }
         }
 
-        private static void IncreaseQuality(Item Item)
+        private static void IncreaseQuality(Item item)
         {
-            if (Item.Quality < 50)
+            if (item.Quality < 50)
             {
-                Item.Quality += 1;
+                item.Quality += 1;
+            }
+        }
+
+        private static void IncreaseQualityIncludingBackstagePasses(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality += 1;
+                IncreaseIfBackStagePasses(item);
             }
         }
 
