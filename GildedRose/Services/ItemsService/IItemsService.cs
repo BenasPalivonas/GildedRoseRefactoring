@@ -1,4 +1,5 @@
 ﻿using csharpcore;
+using GildedRose.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace GildedRose.Services.ItemsService
 {
     public interface IItemsService
     {
-        public List<Item> GetItems();
+        public List<SuperItem> GetItems();
     }
 }

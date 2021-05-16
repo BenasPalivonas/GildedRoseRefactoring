@@ -9,7 +9,7 @@ namespace GildedRose.Models.ConjuredItem
 {
     public class IsConjuredItem : IConjuredItem
     {
-        public void DegradeQuality(Item item)
+        public void DegradeQuality(SuperItem item)
         {
             item.Quality -= 1;
         }

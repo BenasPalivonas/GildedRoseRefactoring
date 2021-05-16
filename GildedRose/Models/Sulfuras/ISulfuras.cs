@@ -1,8 +1,10 @@
-﻿namespace csharpcore
+﻿using GildedRose.Models;
+
+namespace csharpcore
 {
     public interface ISulfuras
     {
-        public void DecreaseSellInIfNotSulfuras(Item item);
-        public void DecreaseQualityIfNotSulfuras(Item item);
+        public void DecreaseSellInIfNotSulfuras(SuperItem item);
+        public void DecreaseQualityIfNotSulfuras(SuperItem item);
     }
 }

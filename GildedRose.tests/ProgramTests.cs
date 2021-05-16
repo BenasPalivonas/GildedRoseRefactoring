@@ -1,4 +1,4 @@
-﻿using csharpcore;
+﻿using GildedRose.Models;
 using GildedRose.Services.ConsoleWriter;
 using GildedRose.Services.GildedRose;
 using GildedRose.Services.ItemsService;
@@ -6,7 +6,7 @@ using Moq;
 using System.Collections.Generic;
 using Xunit;
 
-namespace GildedRose.tests
+namespace csharpcore
 {
     public class ProgramTests
     {
@@ -15,11 +15,11 @@ namespace GildedRose.tests
         private readonly IGildedRoseService _gildedRose;
         public ProgramTests()
         {
-            var Items = new List<Item>{
-                new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
+            var SuperItems = new List<SuperItem>{
+                new SuperItem {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
             };
             var itemsServiceMock = new Mock<IItemsService>();
-            itemsServiceMock.Setup(i => i.GetItems()).Returns(Items);
+            itemsServiceMock.Setup(i => i.GetItems()).Returns(SuperItems);
             var consoleWriterMock = new Mock<IConsoleWriter>();
             var gildedRoseMock = new Mock<IGildedRoseService>();
             _itemsService = itemsServiceMock.Object;
@@ -29,14 +29,12 @@ namespace GildedRose.tests
         [Fact]
         public void Run()
         {
-
             try
             {
                 var program = new Program(_itemsService, _consoleWriter, _gildedRose);
                 program.Run();
                 return;
             }
-
             catch
             {
                 Assert.False(true);

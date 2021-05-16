@@ -1,7 +1,9 @@
-﻿namespace csharpcore
+﻿using GildedRose.Models;
+
+namespace csharpcore
 {
     public interface IAgedBrie
     {
-        public void DecreaseQualityIfNotAgedBrie(Item item);
+        public void DecreaseQualityIfNotAgedBrie(SuperItem item);
     }
 }

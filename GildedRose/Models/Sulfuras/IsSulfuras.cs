@@ -1,13 +1,14 @@
-﻿using static csharpcore.Item;
+﻿using GildedRose.Models;
+using static csharpcore.Item;
 
 namespace csharpcore
 {
     public class IsSulfuras : ISulfuras
     {
-        public void DecreaseSellInIfNotSulfuras(Item item)
+        public void DecreaseSellInIfNotSulfuras(SuperItem item)
         {
         }
-        public void DecreaseQualityIfNotSulfuras(Item item)
+        public void DecreaseQualityIfNotSulfuras(SuperItem item)
         {
         }
     }

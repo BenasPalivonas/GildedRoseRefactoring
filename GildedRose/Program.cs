@@ -1,8 +1,10 @@
-﻿using GildedRose.Services.ConsoleWriter;
+﻿using GildedRose.Models;
+using GildedRose.Services.ConsoleWriter;
 using GildedRose.Services.GildedRose;
 using GildedRose.Services.ItemsService;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -28,7 +30,7 @@ namespace csharpcore
         public void Run()
         {
             _consoleWriter.WriteWelcomeMessage();
-            IList<Item> Items = _itemsService.GetItems();
+            IList<SuperItem> Items = _itemsService.GetItems();
             for (var i = 0; i < 31; i++)
             {
                 _consoleWriter.WriteItemsToConsole(Items, i);

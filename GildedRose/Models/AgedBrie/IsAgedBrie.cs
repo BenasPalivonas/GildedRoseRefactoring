@@ -1,8 +1,10 @@
-﻿namespace csharpcore
+﻿using GildedRose.Models;
+
+namespace csharpcore
 {
     public class IsAgedBrie : IAgedBrie
     {
-        public void DecreaseQualityIfNotAgedBrie(Item item)
+        public void DecreaseQualityIfNotAgedBrie(SuperItem item)
         {
             item.IncreaseQuality();
         }

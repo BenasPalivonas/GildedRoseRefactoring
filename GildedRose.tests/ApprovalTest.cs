@@ -6,7 +6,7 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using csharpcore;
 
-namespace GildedRose.tests
+namespace csharpcore
 {
     [UseReporter(typeof(DiffReporter))]
     public class ApprovalTest

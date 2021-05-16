@@ -1,4 +1,5 @@
 ﻿using csharpcore;
+using GildedRose.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace GildedRose.Services.ConsoleWriter
 {
     public interface IConsoleWriter
     {
-        public void WriteItemsToConsole(IList<Item> Items, int day);
+        public void WriteItemsToConsole(IList<SuperItem> Items, int day);
         public void WriteWelcomeMessage();
     }
 }
