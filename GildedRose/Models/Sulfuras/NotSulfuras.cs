@@ -11,6 +11,7 @@
             if (item.Quality > 0)
             {
                 item.Quality -= 1;
+                item.ConjuredItem.DegradeQuality(item);
             }
         }
     }

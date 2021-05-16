@@ -1,4 +1,6 @@
 ﻿
+using GildedRose.Models.ConjuredItem;
+
 namespace csharpcore
 {
     public class Item
@@ -22,6 +24,7 @@ namespace csharpcore
                 AgedBrie = this._name.Equals(Aged_Brie) ? new IsAgedBrie() : new NotAgedBrie();
                 Sulfuras = this._name.Equals(Sulfuras_Hand_Of_Ragnaros) ? new IsSulfuras() : new NotSulfuras();
                 BackStagePasses = this._name.Equals(Backstage_Passes) ? new IsBackStagePasses() : new NotBackStagePasses();
+                ConjuredItem = this._name.Contains("Conjured") ? new IsConjuredItem() : new NotConjuredItem();
             }
         }
         public int SellIn { get; set; }
@@ -32,6 +35,8 @@ namespace csharpcore
         public ISulfuras Sulfuras;
 
         public IBackStagePasses BackStagePasses;
+
+        public IConjuredItem ConjuredItem;
 
         public void HandleSellInExpired()
         {
