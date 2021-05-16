@@ -6,6 +6,9 @@ namespace csharpcore
 {
     public class GildedRoseTest
     {
+        private const string Aged_Brie = "Aged Brie";
+        private const string Sulfuras_Hand_Of_Ragnaros = "Sulfuras, Hand of Ragnaros";
+        private const string Backstage_Passes = "Backstage passes to a TAFKAL80ETC concert";
         [Fact]
         public void foo()
         {
@@ -27,33 +30,34 @@ namespace csharpcore
         [Fact]
         public void UpdateSulfuras()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 25, Quality = 40 } };
+            IList<Item> Items = new List<Item> { new Item { Name = Sulfuras_Hand_Of_Ragnaros, SellIn = 25, Quality = 40 } };
             GildedRoseService app = new GildedRoseService();
             app.UpdateQuality(Items);
-            Assert.Equal("Sulfuras, Hand of Ragnaros", Items[0].Name);
+            Assert.Equal(Sulfuras_Hand_Of_Ragnaros, Items[0].Name);
             Assert.Equal(40, Items[0].Quality);
             Assert.Equal(25, Items[0].SellIn);
         }
         [Fact]
         public void UpdateBackStagePasses()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 40 } };
+            IList<Item> Items = new List<Item> { new Item { Name = Backstage_Passes, SellIn = 5, Quality = 40 } };
             GildedRoseService app = new GildedRoseService();
             app.UpdateQuality(Items);
-            Assert.Equal("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
+            Assert.Equal(Backstage_Passes, Items[0].Name);
             Assert.Equal(43, Items[0].Quality);
             Assert.Equal(4, Items[0].SellIn);
         }
         [Fact]
         public void UpdateAgedBrie()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 41 } };
+            IList<Item> Items = new List<Item> { new Item { Name = Aged_Brie, SellIn = 0, Quality = 41 } };
             GildedRoseService app = new GildedRoseService();
             app.UpdateQuality(Items);
-            Assert.Equal("Aged Brie", Items[0].Name);
+            Assert.Equal(Aged_Brie, Items[0].Name);
             Assert.Equal(43, Items[0].Quality);
             Assert.Equal(-1, Items[0].SellIn);
         }
+
 
     }
 }
