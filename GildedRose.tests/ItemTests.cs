@@ -77,6 +77,25 @@ namespace csharpcore
             Assert.Equal(25, Item.SellIn);
         }
         [Fact]
+        public void UpdateQuality_IfSellInExpired() {
+            var Item = new Item { Name = "test", SellIn = -1, Quality = 50 };
+            Item.UpdateQuality();
+            Item.HandleSellInExpired();
+            Assert.Equal("test", Item.Name);
+            Assert.Equal(48, Item.Quality);
+            Assert.Equal(-1, Item.SellIn);
+        }
+        [Fact]
+        public void UpdateQuality_IfSellInExpired_ConjuredItem()
+        {
+            var Item = new Item { Name = Conjured_Item, SellIn = -1, Quality = 50 };
+            Item.UpdateQuality();
+            Item.HandleSellInExpired();
+            Assert.Equal(Conjured_Item, Item.Name);
+            Assert.Equal(46, Item.Quality);
+            Assert.Equal(-1, Item.SellIn);
+        }
+        [Fact]
         public void HandleSellInExpired_NotExpired()
         {
             var Item = new Item { Name = "test", SellIn = 14, Quality = 11 };
