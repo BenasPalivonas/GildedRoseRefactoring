@@ -1,8 +1,5 @@
 ﻿using Xunit;
-using System.Collections.Generic;
-using GildedRose.Services.GildedRose;
-using csharpcore;
-namespace GildedRose.tests
+namespace csharpcore
 {
     public class ItemTests
     {
@@ -15,7 +12,7 @@ namespace GildedRose.tests
         [Fact]
         public void IncreaseQualityWhenQualityIsMax()
         {
-            var Item = new Item { Name = "Test", SellIn = 50, Quality = 50 };
+            var Item = new Item { Name = "Test", SellIn = Max_Quality, Quality = 50 };
             Item.IncreaseQuality();
             Assert.Equal(50, Item.Quality);
         }
