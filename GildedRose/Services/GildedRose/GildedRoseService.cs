@@ -15,30 +15,10 @@ namespace GildedRose.Services.GildedRose
             {
                 Items[i].UpdateQuality();
 
-                Items[i].DecreaseSellInIfNotSulfuras();
+                Items[i].Sulfuras.DecreaseSellInIfNotSulfuras(Items[i]);
 
                 Items[i].HandleSellInExpired();
             }
-        }
-
-        
-
-        
-
-    
-
-       
-
-       
-
-       
-       
-       
-
-      
-
-     
-
-      
+        }     
     }
 }
