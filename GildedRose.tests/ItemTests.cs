@@ -6,6 +6,7 @@ namespace csharpcore
         private const string Aged_Brie = "Aged Brie";
         private const string Sulfuras_Hand_Of_Ragnaros = "Sulfuras, Hand of Ragnaros";
         private const string Backstage_Passes = "Backstage passes to a TAFKAL80ETC concert";
+        private const string Conjured_Item = "Conjured shirt";
         private const int Max_Quality = 50;
         private const int Reaching_Expiry_Date = 11;
         private const int Close_To_Expiry = 6;
@@ -67,6 +68,15 @@ namespace csharpcore
             Assert.Equal(15, Item.SellIn);
         }
         [Fact]
+        public void UpdateQuality_IfConjuredItem()
+        {
+            var Item = new Item { Name = Conjured_Item, SellIn = 25, Quality = 25 };
+            Item.UpdateQuality();
+            Assert.Equal(Conjured_Item, Item.Name);
+            Assert.Equal(23, Item.Quality);
+            Assert.Equal(25, Item.SellIn);
+        }
+        [Fact]
         public void HandleSellInExpired_NotExpired()
         {
             var Item = new Item { Name = "test", SellIn = 14, Quality = 11 };
@@ -110,6 +120,50 @@ namespace csharpcore
             Assert.Equal(Backstage_Passes, Item.Name);
             Assert.Equal(-1, Item.SellIn);
             Assert.Equal(0, Item.Quality);
+        }
+        [Fact]
+        public void DecreaseSellIn_NormalItem() {
+            var Item = new Item { Name = "test", SellIn = 14, Quality = 11 };
+            Item.Sulfuras.DecreaseSellInIfNotSulfuras(Item);
+            Assert.Equal("test", Item.Name);
+            Assert.Equal(13, Item.SellIn);
+            Assert.Equal(11, Item.Quality);
+        }
+        [Fact]
+        public void DecreaseSellIn_Sulfuras()
+        {
+            var Item = new Item { Name = Sulfuras_Hand_Of_Ragnaros, SellIn = 14, Quality = 11 };
+            Item.Sulfuras.DecreaseSellInIfNotSulfuras(Item);
+            Assert.Equal(Sulfuras_Hand_Of_Ragnaros, Item.Name);
+            Assert.Equal(14, Item.SellIn);
+            Assert.Equal(11, Item.Quality);
+        }
+        [Fact]
+        public void DecreaseSellIn_AgedBrie()
+        {
+            var Item = new Item { Name = Aged_Brie, SellIn = 14, Quality = 11 };
+            Item.Sulfuras.DecreaseSellInIfNotSulfuras(Item);
+            Assert.Equal(Aged_Brie, Item.Name);
+            Assert.Equal(13, Item.SellIn);
+            Assert.Equal(11, Item.Quality);
+        }
+        [Fact]
+        public void DecreaseSellIn_BackstagePasses()
+        {
+            var Item = new Item { Name = Backstage_Passes, SellIn = 14, Quality = 11 };
+            Item.Sulfuras.DecreaseSellInIfNotSulfuras(Item);
+            Assert.Equal(Backstage_Passes, Item.Name);
+            Assert.Equal(13, Item.SellIn);
+            Assert.Equal(11, Item.Quality);
+        }
+        [Fact]
+        public void DecreaseSellIn_ConjuredItem()
+        {
+            var Item = new Item { Name = Conjured_Item, SellIn = 14, Quality = 11 };
+            Item.Sulfuras.DecreaseSellInIfNotSulfuras(Item);
+            Assert.Equal(Conjured_Item, Item.Name);
+            Assert.Equal(13, Item.SellIn);
+            Assert.Equal(11, Item.Quality);
         }
     }
 }
