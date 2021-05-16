@@ -4,7 +4,7 @@ using GildedRose.Services.GildedRose;
 using csharpcore;
 namespace GildedRose.tests
 {
-   public class ItemTests
+    public class ItemTests
     {
         private const string Aged_Brie = "Aged Brie";
         private const string Sulfuras_Hand_Of_Ragnaros = "Sulfuras, Hand of Ragnaros";
@@ -17,19 +17,19 @@ namespace GildedRose.tests
         {
             var Item = new Item { Name = "Test", SellIn = 50, Quality = 50 };
             Item.IncreaseQuality();
-            Assert.Equal(50,Item.Quality);     
+            Assert.Equal(50, Item.Quality);
         }
         [Fact]
         public void IncreaseQualityIncludingBackstagePasses_ReachingExpiry()
         {
-            var Item = new Item { Name = Backstage_Passes, SellIn = Reaching_Expiry_Date-1, Quality = 15 };
+            var Item = new Item { Name = Backstage_Passes, SellIn = Reaching_Expiry_Date - 1, Quality = 15 };
             Item.IncreaseQualityIncludingBackstagePasses();
             Assert.Equal(17, Item.Quality);
         }
         [Fact]
         public void IncreaseQualityIncludingBackstagePasses_CloseToExpiry()
         {
-            var Item = new Item { Name = Backstage_Passes, SellIn = Close_To_Expiry-1, Quality = 15 };
+            var Item = new Item { Name = Backstage_Passes, SellIn = Close_To_Expiry - 1, Quality = 15 };
             Item.IncreaseQualityIncludingBackstagePasses();
             Assert.Equal(18, Item.Quality);
         }
@@ -70,12 +70,13 @@ namespace GildedRose.tests
             Assert.Equal(15, Item.SellIn);
         }
         [Fact]
-        public void HandleSellInExpired_NotExpired() {
+        public void HandleSellInExpired_NotExpired()
+        {
             var Item = new Item { Name = "test", SellIn = 14, Quality = 11 };
             Item.HandleSellInExpired();
-            Assert.Equal("test",Item.Name);
-            Assert.Equal(14,Item.SellIn);
-            Assert.Equal(11,Item.Quality);
+            Assert.Equal("test", Item.Name);
+            Assert.Equal(14, Item.SellIn);
+            Assert.Equal(11, Item.Quality);
         }
         [Fact]
         public void HandleSellInExpired_Expired()
