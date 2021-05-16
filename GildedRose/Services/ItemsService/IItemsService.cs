@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GildedRose.Services.Items
+namespace GildedRose.Services.ItemsService
 {
-    public interface IItems
+    public interface IItemsService
     {
         public List<Item> GetItems();
     }

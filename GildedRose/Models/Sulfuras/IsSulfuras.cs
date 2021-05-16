@@ -1,15 +1,14 @@
-﻿namespace csharpcore
+﻿using static csharpcore.Item;
+
+namespace csharpcore
 {
-    public partial class Item
+    public class IsSulfuras : ISulfuras
     {
-        public class IsSulfuras : ISulfuras
+        public void DecreaseSellInIfNotSulfuras(Item item)
         {
-            public void DecreaseSellInIfNotSulfuras(Item item)
-            {
-            }
-            public void DecreaseQualityIfNotSulfuras(Item item)
-            {
-            }
+        }
+        public void DecreaseQualityIfNotSulfuras(Item item)
+        {
         }
     }
 }

@@ -9,7 +9,11 @@ namespace GildedRose.Services.ConsoleWriter
 {
     class ConsoleWriter : IConsoleWriter
     {
-        public void WriteItemsToConsole(IList<Item> Items,int day)
+        public void WriteWelcomeMessage()
+        {
+            Console.WriteLine("OMGHAI!");
+        }
+        public void WriteItemsToConsole(IList<Item> Items, int day)
         {
             Console.WriteLine("-------- day " + day + " --------");
             Console.WriteLine("name, sellIn, quality");

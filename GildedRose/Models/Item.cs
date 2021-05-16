@@ -1,8 +1,7 @@
-﻿using GildedRose.Attributes;
-
+﻿
 namespace csharpcore
 {
-    public partial class Item
+    public class Item
     {
         private const string Aged_Brie = "Aged Brie";
         private const string Sulfuras_Hand_Of_Ragnaros = "Sulfuras, Hand of Ragnaros";

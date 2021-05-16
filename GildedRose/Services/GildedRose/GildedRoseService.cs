@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GildedRose.Services.GildedRose
 {
-   public class GildedRoseService : IGildedRoseService
+    public class GildedRoseService : IGildedRoseService
     {
         public void UpdateQuality(IList<Item> Items)
         {
@@ -19,6 +19,6 @@ namespace GildedRose.Services.GildedRose
 
                 Items[i].HandleSellInExpired();
             }
-        }     
+        }
     }
 }

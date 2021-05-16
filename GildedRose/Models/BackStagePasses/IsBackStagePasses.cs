@@ -1,18 +1,15 @@
 ﻿namespace csharpcore
 {
-    public partial class Item
+    public class IsBackStagePasses : IBackStagePasses
     {
-        public class IsBackStagePasses : IBackStagePasses
+        public void IncreaseIfBackStagePasses(Item item)
         {
-            public void IncreaseIfBackStagePasses(Item item)
-            {
-                item.IncreaseIfReachingExpiry();
-                item.IncreaseIfCloseToExpiry();
-            }
-            public void DecreaseQualityIfNotBackStagePasses(Item item)
-            {
-                item.Quality = 0;
-            }
+            item.IncreaseIfReachingExpiry();
+            item.IncreaseIfCloseToExpiry();
+        }
+        public void DecreaseQualityIfNotBackStagePasses(Item item)
+        {
+            item.Quality = 0;
         }
     }
 }

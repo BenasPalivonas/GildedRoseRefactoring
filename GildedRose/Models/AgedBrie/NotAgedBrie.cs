@@ -1,13 +1,10 @@
 ﻿namespace csharpcore
 {
-    public partial class Item
+    public class NotAgedBrie : IAgedBrie
     {
-        public class NotAgedBrie : IAgedBrie
+        public void DecreaseQualityIfNotAgedBrie(Item item)
         {
-            public void DecreaseQualityIfNotAgedBrie(Item item)
-            {
-                item.BackStagePasses.DecreaseQualityIfNotBackStagePasses(item);
-            }
+            item.BackStagePasses.DecreaseQualityIfNotBackStagePasses(item);
         }
     }
 }

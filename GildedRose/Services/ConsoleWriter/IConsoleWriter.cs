@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace GildedRose.Services.ConsoleWriter
 {
-   public interface IConsoleWriter
+    public interface IConsoleWriter
     {
-        public void WriteItemsToConsole(IList<Item> Items,int day);
+        public void WriteItemsToConsole(IList<Item> Items, int day);
+        public void WriteWelcomeMessage();
     }
 }
