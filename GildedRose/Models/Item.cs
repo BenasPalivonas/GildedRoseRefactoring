@@ -72,14 +72,20 @@ namespace csharpcore
             }
         }
 
+        private const string Aged_Brie = "Aged Brie";
+        private const string Sulfuras_Hand_Of_Ragnaros = "Sulfuras, Hand of Ragnaros";
+        private const string Backstage_Passes = "Backstage passes to a TAFKAL80ETC concert";
+        private const int Max_Quality = 50;
+        private const int Reaching_Expiry_Date = 11;
+        private const int Close_To_Expiry = 6;
         private string _name;
         public string Name { get {
                 return _name;
             } set {
                 _name = value;
-                AgedBrie = this._name.Equals("Aged Brie") ? new IsAgedBrie() : new NotAgedBrie();
-                Sulfuras = this._name.Equals("Sulfuras, Hand of Ragnaros") ? new IsSulfuras() : new NotSulfuras();
-                BackStagePasses = this._name.Equals("Backstage passes to a TAFKAL80ETC concert") ? new IsBackStagePasses() : new NotBackStagePasses();
+                AgedBrie = this._name.Equals(Aged_Brie) ? new IsAgedBrie() : new NotAgedBrie();
+                Sulfuras = this._name.Equals(Sulfuras_Hand_Of_Ragnaros) ? new IsSulfuras() : new NotSulfuras();
+                BackStagePasses = this._name.Equals(Backstage_Passes) ? new IsBackStagePasses() : new NotBackStagePasses();
             } }
         public int SellIn { get; set; }
         public int Quality { get; set; }
@@ -100,7 +106,7 @@ namespace csharpcore
         public void UpdateQuality()
         {
             //Could do a type check
-            if (_name != "Aged Brie" && _name != "Backstage passes to a TAFKAL80ETC concert")
+            if (_name != Aged_Brie && _name != Backstage_Passes)
             {
                 Sulfuras.DecreaseQualityIfNotSulfuras(this);
             }
@@ -111,7 +117,7 @@ namespace csharpcore
         }
         public void IncreaseIfCloseToExpiry()
         {
-            if (SellIn < 6)
+            if (SellIn < Close_To_Expiry)
             {
                 IncreaseQuality();
             }
@@ -119,7 +125,7 @@ namespace csharpcore
 
         public void IncreaseIfReachingExpiry()
         {
-            if (SellIn < 11)
+            if (SellIn < Reaching_Expiry_Date)
             {
                 IncreaseQuality();
             }
@@ -127,7 +133,7 @@ namespace csharpcore
 
         public void IncreaseQuality()
         {
-            if (Quality < 50)
+            if (Quality < Max_Quality)
             {
                 Quality += 1;
             }
@@ -135,7 +141,7 @@ namespace csharpcore
 
         public void IncreaseQualityIncludingBackstagePasses()
         {
-            if (Quality < 50)
+            if (Quality < Max_Quality)
             {
                 Quality += 1;
                BackStagePasses.IncreaseIfBackStagePasses(this);
