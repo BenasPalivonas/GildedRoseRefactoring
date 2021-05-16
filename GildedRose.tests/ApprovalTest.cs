@@ -4,7 +4,6 @@ using System.IO;
 using System.Text;
 using ApprovalTests;
 using ApprovalTests.Reporters;
-using csharpcore;
 
 namespace csharpcore
 {

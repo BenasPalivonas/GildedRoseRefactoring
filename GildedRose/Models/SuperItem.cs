@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GildedRose.Models
 {
-    // I added SuperItem class, because the refactoring guide said you can't change Item class
+    // I added SuperItem class, because the refactoring guide said you can't modify Item class
     public class SuperItem : Item
     {
         private const string Aged_Brie = "Aged Brie";
